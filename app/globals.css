@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* AnimatedBackground (rendered in layout.tsx) supplies the moving color
+       blobs on every page now, so this stays a flat base color. */
+    @apply bg-white text-zinc-900 dark:bg-black dark:text-zinc-50;
+  }
+
+  ::selection {
+    @apply bg-cyan-glow/30 text-inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-zinc-300 dark:bg-zinc-700;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-black/5 bg-white/60 shadow-glass-light backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-glass;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 lg:px-10;
+  }
+
+  .kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-glow;
+  }
+}
