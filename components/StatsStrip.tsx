@@ -31,7 +31,7 @@ export default function StatsStrip() {
             <p className="text-5xl font-bold tabular-nums">
               <CountUp value={stat.value} />+
             </p>
-            <p className="mt-2 text-sm font-medium uppercase tracking-wide text-zinc-500">{stat.label}</p>
+            <p className="mt-2 text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">{stat.label}</p>
           </motion.div>
         ))}
       </div>

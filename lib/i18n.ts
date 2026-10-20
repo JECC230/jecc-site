@@ -2,6 +2,9 @@ export type Lang = 'en' | 'es';
 
 export const LANGS: Lang[] = ['en', 'es'];
 
+// Third-party brands named anywhere on the site, for the non-affiliation notice.
+const BRANDS = 'Pioneer DJ, AlphaTheta, rekordbox, Nissan, Spotify, Apple Music, YouTube, SoundCloud, TikTok, Instagram, GitHub';
+
 const en = {
   nav: {
     hero: 'Hub',
@@ -10,6 +13,7 @@ const en = {
     car: 'Garage',
     media: 'Media',
     contact: 'Contact',
+    homeLabel: 'Go to home',
   },
   hero: {
     roles: ['Software Engineer', 'Data Analyst', 'DJ & Music Producer', 'Automotive Builder'],
@@ -22,6 +26,8 @@ const en = {
     ctaExplore: 'Explore my work',
     ctaEpk: 'View EPK',
     scrollHint: 'Scroll to explore',
+    tagline: 'Software engineer, DJ and automotive builder from Chihuahua, MX. Clean systems by day, club sets by night, and a VQ35 in the garage — one hub for all of it.',
+    ctaProjects: 'See projects',
   },
   tech: {
     kicker: 'Software Engineer & Data Analyst',
@@ -37,6 +43,8 @@ const en = {
       view: 'View Repo',
     } as Record<string, string>,
     projects: {
+      deckcue:
+        'Turns a DJ set recording plus its rekordbox play history into timestamped YouTube chapters — local-first, everything runs in your browser.',
       'smarthome-app':
         'Full-stack inventory and home automation management system, split into its own frontend and backend, with centralized device control and real-time alerts.',
       codi: 'A roommate-matching Android app with a Tinder-style swipe flow, built with Kotlin and Jetpack Compose, Firebase Auth and reactive Cloud Firestore.',
@@ -107,6 +115,10 @@ const en = {
     badges: {
       'launch-control': 'Launch control',
     } as Record<string, string>,
+    colors: {
+      silverstone: 'Silverstone Gray',
+      'pearl-white': 'Pearl White',
+    } as Record<string, string>,
     mediaTitle: 'Build & Maintenance Videos',
     galleryTitle: 'Detail Shots',
   },
@@ -154,13 +166,96 @@ const en = {
     sending: 'Opening your email client...',
     sent: 'Ready — check your email app to send it.',
     socialsTitle: 'Find me elsewhere',
+    charsLeft: 'characters left',
   },
   footer: {
-    rights: 'All rights reserved.',
+    rights: 'All rights reserved',
   },
   themeToggle: { light: 'Light mode', dark: 'Dark mode' },
   langToggle: { label: 'Language' },
   dock: { open: 'Show social links', close: 'Hide social links' },
+  latest: {
+    kicker: 'Latest',
+    title: 'Fresh from the channels',
+    intro: 'The newest uploads from both channels — sound and garage — refreshed automatically twice a day.',
+    short: 'Short',
+    categories: { music: 'Music', auto: 'Garage' } as Record<string, string>,
+    watch: 'Watch on YouTube',
+  },
+  modal: { close: 'Close' },
+  pro: {
+    badge: 'Pro',
+    cta: 'Try it',
+    title: 'Coming in the Pro version',
+    body: 'This feature runs on paid AI and API infrastructure, so it will ship with the Pro version. Leave your email and you will be first in line.',
+    notify: 'Notify me',
+    dismiss: 'Maybe later',
+    features: {
+      'song-recognition': 'Automatic song recognition',
+      'live-classifier': 'Classify your own photo live',
+    } as Record<string, string>,
+  },
+  projectsHub: {
+    kicker: 'Project Hub',
+    title: 'Things I build and ship',
+    intro: 'Products running in production, open-source work, and client systems — each with a link to the real thing.',
+    live: 'Live',
+    open: 'Open app',
+  },
+  legal: {
+    brandTagline: 'Code, sound, and builds from Chihuahua, MX.',
+    productTitle: 'Product',
+    legalTitle: 'Legal',
+    privacy: 'Privacy policy',
+    rights: 'Your data rights (ARCO / GDPR / CCPA)',
+    trademarks: 'Trademark notice',
+    disclaimer: `Independent project. Not affiliated with, endorsed by, or sponsored by ${BRANDS}. All trademarks belong to their respective owners.`,
+    localFirst: 'Local-first: no accounts, no tracking cookies, no analytics.',
+    privacyPage: {
+      kicker: 'Legal',
+      title: 'Privacy, local-first',
+      updated: 'Last updated: October 2026',
+      sections: [
+        {
+          id: 'privacy',
+          title: 'What this site stores',
+          body: 'Nothing on a server. This is a static site with no accounts, no database, no analytics and no tracking cookies. Your theme and language choice are saved only in your own browser (localStorage) and never leave your device. DeckCue processes your audio and history files locally in your browser; they are never uploaded.',
+        },
+        {
+          id: 'third-parties',
+          title: 'Third-party content',
+          body: 'Embedded YouTube videos and links to external profiles are served by those platforms under their own privacy policies. The contact form does not send anything itself: it opens your own email app with a pre-filled draft.',
+        },
+        {
+          id: 'arco',
+          title: 'Your rights (ARCO, GDPR, CCPA)',
+          body: 'Under Mexico\'s LFPDPPP (ARCO rights: access, rectification, cancellation and opposition), the EU GDPR and the California CCPA you may ask what personal data is held about you, have it corrected, or have it permanently deleted. Since this site keeps no personal data, the only data that can exist is an email you chose to send. Write to the address below and it will be erased within 30 days.',
+        },
+        {
+          id: 'marcas',
+          title: 'Trademark notice',
+          body: `Independent project. Not affiliated with, endorsed by, or sponsored by ${BRANDS}. Product names are used only to describe compatibility and the gear used.`,
+        },
+      ],
+      contactLabel: 'Privacy requests:',
+    },
+  },
+  danger: {
+    zoneTitle: 'Danger zone',
+    zoneBody: 'Permanently delete your account and every piece of data tied to it.',
+    open: 'Delete account',
+    title: 'Delete your account permanently?',
+    body: 'This cannot be undone. The following will be purged immediately:',
+    items: [
+      'Storage: every uploaded file and generated asset',
+      'Auth: your login, sessions and linked providers',
+      'Stripe: your customer record and saved payment methods; active subscriptions are cancelled',
+    ],
+    confirmLabel: 'Type DELETE to confirm',
+    confirmWord: 'DELETE',
+    confirm: 'Delete forever',
+    cancel: 'Cancel',
+  },
   status: {
     loadingImage: 'Creating content for you...',
     loadingVideo: 'Creating content for you...',
@@ -178,6 +273,7 @@ const es: typeof en = {
     car: 'Garage',
     media: 'Media',
     contact: 'Contacto',
+    homeLabel: 'Ir al inicio',
   },
   hero: {
     roles: ['Software Engineer', 'Data Analyst', 'DJ & Productor Musical', 'Automotive Builder'],
@@ -190,6 +286,8 @@ const es: typeof en = {
     ctaExplore: 'Explora mi trabajo',
     ctaEpk: 'Ver EPK',
     scrollHint: 'Desliza para explorar',
+    tagline: 'Ingeniero de software, DJ y constructor automotriz desde Chihuahua, MX. Sistemas limpios de día, sets de club de noche y un VQ35 en el garage — un solo hub para todo.',
+    ctaProjects: 'Ver proyectos',
   },
   tech: {
     kicker: 'Software Engineer & Data Analyst',
@@ -205,6 +303,8 @@ const es: typeof en = {
       view: 'Ver Repo',
     },
     projects: {
+      deckcue:
+        'Convierte la grabación de un set y su historial de rekordbox en capítulos de YouTube con timestamps — local-first, todo corre en tu navegador.',
       'smarthome-app':
         'Sistema full-stack de inventario y gestión de automatización del hogar, dividido en su propio frontend y backend, con control centralizado de dispositivos y alertas en tiempo real.',
       codi: 'App de Android para encontrar roomies compatibles con dinámica de swipe estilo Tinder, construida con Kotlin y Jetpack Compose, autenticación con Firebase y Cloud Firestore reactivo.',
@@ -275,6 +375,10 @@ const es: typeof en = {
     badges: {
       'launch-control': 'Launch control',
     },
+    colors: {
+      silverstone: 'Gris Silverstone',
+      'pearl-white': 'Blanco Perla',
+    },
     mediaTitle: 'Videos de Construcción & Mantenimiento',
     galleryTitle: 'Detalles',
   },
@@ -321,13 +425,96 @@ const es: typeof en = {
     sending: 'Abriendo tu cliente de correo...',
     sent: 'Listo — revisa tu app de correo para enviarlo.',
     socialsTitle: 'Encuéntrame en otras redes',
+    charsLeft: 'caracteres restantes',
   },
   footer: {
-    rights: 'Todos los derechos reservados.',
+    rights: 'Todos los derechos reservados',
   },
   themeToggle: { light: 'Modo claro', dark: 'Modo oscuro' },
   langToggle: { label: 'Idioma' },
   dock: { open: 'Mostrar redes sociales', close: 'Ocultar redes sociales' },
+  latest: {
+    kicker: 'Lo último',
+    title: 'Recién salido de los canales',
+    intro: 'Lo más nuevo de ambos canales — sonido y garage — actualizado automáticamente dos veces al día.',
+    short: 'Short',
+    categories: { music: 'Música', auto: 'Garage' },
+    watch: 'Ver en YouTube',
+  },
+  modal: { close: 'Cerrar' },
+  pro: {
+    badge: 'Pro',
+    cta: 'Probar',
+    title: 'Próximamente en la versión Pro',
+    body: 'Esta función corre sobre infraestructura de IA y APIs de pago, así que llegará con la versión Pro. Deja tu correo y serás de los primeros en usarla.',
+    notify: 'Avísame',
+    dismiss: 'Quizá después',
+    features: {
+      'song-recognition': 'Reconocimiento automático de canciones',
+      'live-classifier': 'Clasifica tu propia foto en vivo',
+    },
+  },
+  projectsHub: {
+    kicker: 'Hub de Proyectos',
+    title: 'Lo que construyo y lanzo',
+    intro: 'Productos en producción, trabajo open-source y sistemas para clientes — cada uno con enlace a lo real.',
+    live: 'En vivo',
+    open: 'Abrir app',
+  },
+  legal: {
+    brandTagline: 'Código, sonido y builds desde Chihuahua, MX.',
+    productTitle: 'Producto',
+    legalTitle: 'Legal',
+    privacy: 'Política de privacidad',
+    rights: 'Tus derechos (ARCO / GDPR / CCPA)',
+    trademarks: 'Aviso de marcas',
+    disclaimer: `Proyecto independiente. No afiliado, respaldado ni patrocinado por ${BRANDS}. Todas las marcas pertenecen a sus respectivos dueños.`,
+    localFirst: 'Local-first: sin cuentas, sin cookies de rastreo, sin analíticas.',
+    privacyPage: {
+      kicker: 'Legal',
+      title: 'Privacidad, local-first',
+      updated: 'Última actualización: octubre 2026',
+      sections: [
+        {
+          id: 'privacy',
+          title: 'Qué guarda este sitio',
+          body: 'Nada en un servidor. Es un sitio estático sin cuentas, sin base de datos, sin analíticas y sin cookies de rastreo. Tu elección de tema e idioma se guarda solo en tu navegador (localStorage) y nunca sale de tu dispositivo. DeckCue procesa tus archivos de audio e historial localmente en tu navegador; nunca se suben.',
+        },
+        {
+          id: 'third-parties',
+          title: 'Contenido de terceros',
+          body: 'Los videos de YouTube incrustados y los enlaces a perfiles externos los sirven esas plataformas bajo sus propias políticas de privacidad. El formulario de contacto no envía nada por sí mismo: abre tu app de correo con un borrador prellenado.',
+        },
+        {
+          id: 'arco',
+          title: 'Tus derechos (ARCO, GDPR, CCPA)',
+          body: 'Conforme a la LFPDPPP de México (derechos ARCO: acceso, rectificación, cancelación y oposición), el GDPR de la UE y la CCPA de California, puedes solicitar qué datos personales existen sobre ti, corregirlos o eliminarlos de forma permanente. Como este sitio no guarda datos personales, lo único que puede existir es un correo que tú hayas enviado. Escribe a la dirección de abajo y se borrará en un máximo de 30 días.',
+        },
+        {
+          id: 'marcas',
+          title: 'Aviso de marcas',
+          body: `Proyecto independiente. No afiliado, respaldado ni patrocinado por ${BRANDS}. Los nombres de productos se usan solo para describir compatibilidad y el equipo utilizado.`,
+        },
+      ],
+      contactLabel: 'Solicitudes de privacidad:',
+    },
+  },
+  danger: {
+    zoneTitle: 'Zona de peligro',
+    zoneBody: 'Elimina tu cuenta de forma permanente junto con todos los datos asociados.',
+    open: 'Eliminar cuenta',
+    title: '¿Eliminar tu cuenta para siempre?',
+    body: 'Esta acción no se puede deshacer. Se purgará de inmediato:',
+    items: [
+      'Storage: todos los archivos subidos y recursos generados',
+      'Auth: tu acceso, sesiones y proveedores vinculados',
+      'Stripe: tu registro de cliente y métodos de pago guardados; las suscripciones activas se cancelan',
+    ],
+    confirmLabel: 'Escribe ELIMINAR para confirmar',
+    confirmWord: 'ELIMINAR',
+    confirm: 'Eliminar para siempre',
+    cancel: 'Cancelar',
+  },
   status: {
     loadingImage: 'Creando contenido para ti...',
     loadingVideo: 'Creando contenido para ti...',

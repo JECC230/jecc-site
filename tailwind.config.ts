@@ -6,8 +6,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        sans: ['var(--font-sans)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       colors: {
         cyan: {
@@ -27,14 +27,21 @@ const config: Config = {
         glass: '0 8px 32px 0 rgba(0, 0, 0, 0.24)',
         'glass-light': '0 8px 32px 0 rgba(0, 0, 0, 0.08)',
         glow: '0 0 40px -8px rgba(34, 211, 238, 0.35)',
+        accent: '0 18px 48px -16px rgba(34, 211, 238, 0.45)',
+        'accent-violet': '0 18px 48px -16px rgba(139, 92, 246, 0.45)',
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out forwards',
         float: 'float 6s ease-in-out infinite',
         'spin-slow': 'spin 14s linear infinite',
         drift: 'drift 22s ease-in-out infinite',
+        'gradient-x': 'gradient-x 6s ease infinite',
       },
       keyframes: {
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },

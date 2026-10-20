@@ -80,7 +80,7 @@ export default function MediaGallery() {
             ))}
           </ul>
           <YoutubeEmbed videoId={VERIFIED_VIDEOS.gearReview} title="Pioneer DM-50D review" />
-          <p className="mt-2 text-xs text-zinc-500">{t.media.gearReviewCaption}</p>
+          <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">{t.media.gearReviewCaption}</p>
         </GlassCard>
 
         <GlassCard className="p-6">
@@ -88,7 +88,7 @@ export default function MediaGallery() {
             <Shirt className="h-4 w-4 text-amber-600 dark:text-amber-glow" />
             <h3 className="text-lg font-semibold">{t.media.styleTitle}</h3>
           </div>
-          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{t.media.styleText}</p>
+          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">{t.media.styleText}</p>
         </GlassCard>
       </div>
 

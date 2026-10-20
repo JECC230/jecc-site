@@ -49,7 +49,7 @@ export default function MusicSection() {
             />
             <div className="pb-1">
               <p className="text-lg font-semibold">JECC</p>
-              <p className="text-sm text-zinc-500">DJ & Music Producer</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">DJ & Music Producer</p>
             </div>
           </div>
           <a
@@ -65,7 +65,7 @@ export default function MusicSection() {
       </GlassCard>
 
       <div className="mb-10 flex flex-wrap items-center gap-3">
-        <span className="text-xs font-semibold uppercase tracking-wide text-zinc-500">{t.music.streamingTitle}</span>
+        <span className="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">{t.music.streamingTitle}</span>
         {STREAMING_LINKS.map((link) => {
           const Icon = link.icon;
           return (
@@ -105,7 +105,7 @@ export default function MusicSection() {
             ))}
           </ul>
 
-          <h4 className="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+          <h4 className="mb-2 mt-6 text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
             {t.music.artistLinksTitle}
           </h4>
           <div className="flex flex-col gap-1.5">
@@ -135,7 +135,7 @@ export default function MusicSection() {
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <h4 className="font-semibold">{set.title}</h4>
-                        <p className="text-xs text-zinc-500">{set.date}</p>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400">{set.date}</p>
                       </div>
                       {set.tracklist.length > 0 && (
                         <button
@@ -155,7 +155,7 @@ export default function MusicSection() {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="mt-4 space-y-1.5 overflow-hidden border-t border-black/5 pt-4 text-sm dark:border-white/10"
+                          className="mt-4 space-y-1.5 overflow-hidden pt-2 text-sm"
                         >
                           {set.tracklist.map((entry, idx) => (
                             <li key={idx} className="flex gap-3 text-zinc-600 dark:text-zinc-400">
@@ -163,7 +163,7 @@ export default function MusicSection() {
                                 {entry.time}
                               </span>
                               <span>
-                                {entry.artist} — <span className="text-zinc-500">{entry.track}</span>
+                                {entry.artist} — <span className="text-zinc-500 dark:text-zinc-400">{entry.track}</span>
                               </span>
                             </li>
                           ))}
@@ -193,7 +193,7 @@ export default function MusicSection() {
                 <Music4 className="h-4 w-4 shrink-0 text-cyan-600 dark:text-cyan-glow" />
                 <span className="truncate">{track.title}</span>
               </span>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-zinc-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-zinc-400" />
             </a>
           ))}
         </div>
@@ -209,7 +209,7 @@ export default function MusicSection() {
               </div>
               <div>
                 <p className="font-medium">{gig.event}</p>
-                <p className="text-xs text-zinc-500">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">
                   {gig.venue} · {gig.location}
                 </p>
               </div>

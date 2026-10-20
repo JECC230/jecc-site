@@ -76,12 +76,27 @@ export type Project = {
   image: string;
   // `key` looks up its display label in lib/i18n.ts (tech.linkLabels) so it's bilingual.
   links: { key: 'frontend' | 'backend' | 'view'; href: string }[];
+  // Public, running product URL — shown as the card's primary action.
+  live?: string;
+  // Expensive AI / API capability shown as a "Pro" teaser (label in
+  // lib/i18n.ts tech.pro.features[id]). The button only opens a modal — no
+  // request is made and no endpoint exists behind it.
+  pro?: string;
 };
 
 // Descriptions live in lib/i18n.ts (dictionaries.<lang>.tech.projects[id]) so they're bilingual.
 // Repos verified live on github.com/JECC230 — Fleet Automation Engine is a private/client
 // project, so it ships without a public link.
 export const PROJECTS: Project[] = [
+  {
+    id: 'deckcue',
+    title: 'DeckCue',
+    tags: ['Next.js', 'Tauri', 'TypeScript', 'Web Audio API'],
+    image: '',
+    links: [],
+    live: 'https://deckcue.jecc.mx/',
+    pro: 'song-recognition',
+  },
   {
     id: 'smarthome-app',
     title: 'SmartHome App',
@@ -112,6 +127,7 @@ export const PROJECTS: Project[] = [
     tags: ['Python', 'Machine Learning', 'Computer Vision'],
     image: '/assets/projects/ml-cars.jpg',
     links: [{ key: 'view', href: 'https://github.com/JECC230/ML_cars_v2' }],
+    pro: 'live-classifier',
   },
 ];
 
@@ -135,9 +151,13 @@ export const DJ_GEAR = [
   'rekordbox / rekordbox DJ ecosystem',
 ];
 
-// Car/build footage isn't confirmed live on the channel yet — replace when you upload some.
-export const YOUTUBE_VIDEO_IDS = {
-  auto: ['YOUR_BUILD_VIDEO_ID_1', 'YOUR_BUILD_VIDEO_ID_2'],
+// Real Shorts from the car channel (@jecc_23), titles as published (minus
+// emoji and hashtags). All vertical, so AutoSection embeds them at 9:16.
+const VIDEO = {
+  hrExhaust: { id: 'LHThPHnSgj8', title: 'VQ35HR con headers stock, test pipe de acero inoxidable y catback Tomei de titanio' },
+  battery: { id: 'qB1S6Q72GVo', title: '¿Sirve el cargador de Mercado Libre? Reviviendo una batería muerta' },
+  interior: { id: 'jZDonhRkDOo', title: 'Interiores JDM: volante de carbono y palanca de Katana' },
+  duo: { id: 'OdXTaxhOcdQ', title: 'El dúo perfecto de la calle: Blanco vs Gris' },
 };
 
 export type TracklistEntry = { time: string; artist: string; track: string };
@@ -182,6 +202,11 @@ export type CarBuild = {
   engine: string;
   trans: string;
   badges: string[]; // ids into i18n auto.badges — e.g. 'launch-control'
+  // Paint, shown as a swatch next to the car's name. `id` looks up the
+  // bilingual name in i18n auto.colors.
+  color: { id: string; hex: string };
+  // Build / maintenance videos for this car, shown when its tab is selected.
+  videos: { id: string; title: string }[];
   modCategories: ModCategory[];
 };
 
@@ -195,6 +220,8 @@ export const CARS: CarBuild[] = [
     engine: 'VQ35DE',
     trans: 'Manual',
     badges: ['launch-control'],
+    color: { id: 'silverstone', hex: '#8e9196' },
+    videos: [VIDEO.battery, VIDEO.interior, VIDEO.duo],
     modCategories: [
       { id: 'intake', modIds: ['plenum-spacer-z1', 'throttle-body-spacer', 'long-intake'] },
       { id: 'engine-management', modIds: ['aem-bypass', 'stage2-tune', 'launch-control'] },
@@ -212,6 +239,8 @@ export const CARS: CarBuild[] = [
     engine: 'VQ35HR',
     trans: 'Automatic',
     badges: [],
+    color: { id: 'pearl-white', hex: '#f5f4ef' },
+    videos: [VIDEO.hrExhaust, VIDEO.duo],
     modCategories: [
       { id: 'intake', modIds: ['stillen-intake'] },
       { id: 'exhaust', modIds: ['tomei-catback', 'ss-test-pipe'] },

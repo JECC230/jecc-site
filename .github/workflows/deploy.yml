@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Called by update-content.yml: commits made with GITHUB_TOKEN don't trigger
+  # `push` workflows, so the content job invokes this one directly.
+  workflow_call:
+    inputs:
+      ref:
+        description: Commit to build (defaults to the triggering commit)
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -20,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v4

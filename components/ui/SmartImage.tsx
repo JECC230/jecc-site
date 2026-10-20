@@ -31,13 +31,13 @@ export default function SmartImage({ src, alt, className, wrapperClassName, ...p
         />
       )}
       {status === 'loading' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-zinc-400 dark:text-zinc-600">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-zinc-500 dark:text-zinc-400">
           <Loader2 className="h-5 w-5 animate-spin" />
           <span className="px-2 text-center text-[11px] font-medium">{t.status.loadingImage}</span>
         </div>
       )}
       {status === 'error' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-zinc-400 dark:text-zinc-600">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-zinc-500 dark:text-zinc-400">
           <ImageOff className="h-5 w-5" />
           <span className="px-2 text-center text-[11px] font-medium">{t.status.imageError}</span>
         </div>

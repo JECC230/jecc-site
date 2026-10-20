@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Gauge, ImageOff } from 'lucide-react';
-import { AUTO_GALLERY, CARS, YOUTUBE_VIDEO_IDS } from '@/lib/data';
+import { AUTO_GALLERY, CARS } from '@/lib/data';
 import { useLanguage } from '@/app/providers';
 import SectionHeading from './ui/SectionHeading';
 import GlassCard from './ui/GlassCard';
@@ -11,6 +11,18 @@ import Badge from './ui/Badge';
 import YoutubeEmbed from './ui/YoutubeEmbed';
 import SmartImage from './ui/SmartImage';
 import { cn } from '@/lib/utils';
+
+// A paint chip. The ring keeps Pearl White visible on light backgrounds and
+// Silverstone visible on dark ones.
+function ColorSwatch({ hex, className }: { hex: string; className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={cn('inline-block shrink-0 rounded-full ring-1 ring-black/20 dark:ring-white/30', className)}
+      style={{ backgroundColor: hex, boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.18)' }}
+    />
+  );
+}
 
 export default function AutoSection() {
   const { t } = useLanguage();
@@ -31,12 +43,13 @@ export default function AutoSection() {
             type="button"
             onClick={() => setCarId(c.id)}
             className={cn(
-              'rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+              'inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
               carId === c.id
                 ? 'bg-zinc-900 text-white dark:bg-white dark:text-black'
                 : 'glass-panel text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'
             )}
           >
+            <ColorSwatch hex={c.color.hex} className="h-3 w-3" />
             {c.year} · {c.engine}
           </button>
         ))}
@@ -47,10 +60,16 @@ export default function AutoSection() {
           <Gauge className="h-7 w-7" />
         </div>
         <div>
-          <h3 className="text-xl font-semibold">
-            {car.year} {car.name}
-          </h3>
-          <p className="mt-1 font-mono text-sm text-zinc-500">
+          <div className="flex flex-wrap items-center gap-3">
+            <h3 className="text-xl font-semibold">
+              {car.year} {car.name}
+            </h3>
+            <Badge className="gap-2">
+              <ColorSwatch hex={car.color.hex} className="h-3 w-3" />
+              {t.auto.colors[car.color.id]}
+            </Badge>
+          </div>
+          <p className="mt-1 font-mono text-sm text-zinc-500 dark:text-zinc-400">
             {car.engine} · {car.trans}
           </p>
           {car.badges.length > 0 && (
@@ -96,7 +115,7 @@ export default function AutoSection() {
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="overflow-hidden border-t border-black/5 px-5 pb-4 pt-3 text-sm dark:border-white/10"
+                            className="overflow-hidden px-5 pb-4 pt-1 text-sm "
                           >
                             {group.modIds.map((modId) => (
                               <li key={modId} className="flex items-start gap-2 py-1 text-zinc-600 dark:text-zinc-400">
@@ -117,11 +136,21 @@ export default function AutoSection() {
 
         <div>
           <h3 className="mb-4 text-lg font-semibold">{t.auto.mediaTitle}</h3>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {YOUTUBE_VIDEO_IDS.auto.map((id) => (
-              <YoutubeEmbed key={id} videoId={id} title={`${car.name} build video`} />
-            ))}
-          </div>
+          {/* Keyed by car so switching tabs cross-fades the whole set. */}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={car.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {car.videos.map((video) => (
+                <YoutubeEmbed key={video.id} videoId={video.id} title={video.title} vertical />
+              ))}
+            </motion.div>
+          </AnimatePresence>
 
           <h3 className="mb-4 mt-8 text-lg font-semibold">{t.auto.galleryTitle}</h3>
           {AUTO_GALLERY.length > 0 ? (
@@ -131,7 +160,7 @@ export default function AutoSection() {
                   key={image.src}
                   type="button"
                   onClick={() => setLightboxSrc(image.src)}
-                  className="group overflow-hidden rounded-2xl border border-black/5 dark:border-white/10"
+                  className="group overflow-hidden rounded-2xl border border-black/5 "
                 >
                   <SmartImage
                     src={image.src}
@@ -143,7 +172,7 @@ export default function AutoSection() {
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-black/10 bg-black/[0.03] p-8 text-center text-zinc-400 dark:border-white/10 dark:bg-white/[0.02] dark:text-zinc-600">
+            <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-black/10 bg-black/[0.03] p-8 text-center text-zinc-500  dark:bg-white/[0.02] dark:text-zinc-400">
               <ImageOff className="h-5 w-5" />
               <p className="text-sm font-medium">{t.auto.galleryComingSoonTitle}</p>
               <p className="text-xs">{t.auto.galleryComingSoonText}</p>

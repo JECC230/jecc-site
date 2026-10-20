@@ -3,14 +3,21 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     /* AnimatedBackground (rendered in layout.tsx) supplies the moving color
        blobs on every page now, so this stays a flat base color. */
-    @apply bg-white text-zinc-900 dark:bg-black dark:text-zinc-50;
+    @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50;
+  }
+
+  /* Editorial headings: heavier weight, tight negative tracking, brightest ink. */
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold tracking-tight text-zinc-950 dark:text-zinc-50;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 
   ::selection {
@@ -36,11 +43,46 @@
 
 @layer components {
   .glass-panel {
-    @apply border border-black/5 bg-white/60 shadow-glass-light backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-glass;
+    @apply border border-black/5 bg-white/60 shadow-glass-light backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-glass;
+  }
+
+  /* Polished-glass card: translucent fill, heavy blur, hairline edge, and a
+     lift that casts the brand accent instead of a grey drop shadow. */
+  .glass-card {
+    @apply rounded-3xl border border-black/5 bg-white/50 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-cyan-glow/20 hover:shadow-accent dark:border-white/5 dark:bg-white/5 dark:hover:border-white/10;
+  }
+
+  /* Primary action: a slow indigo -> violet -> sky gradient with a diffuse
+     violet glow that breathes. */
+  .btn-shimmer {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-sky-400 bg-[length:200%_auto] px-6 py-3 text-sm font-semibold text-white shadow-[0_0_40px_-10px_rgba(139,92,246,0.5)] ring-1 ring-inset ring-white/20 transition-transform duration-300 hover:-translate-y-0.5;
+    animation: gradient-x 6s ease infinite, breathe 4s ease-in-out infinite;
+  }
+
+  /* Keyword highlight: gradient text that drifts. */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-cyan-500 via-violet-500 to-cyan-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x dark:from-cyan-glow dark:via-violet-400 dark:to-cyan-glow;
   }
 
   .section-shell {
-    @apply mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-6xl px-6 py-28 sm:px-8 sm:py-36 lg:px-10;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-shimmer,
+    .text-shimmer {
+      animation: none;
+    }
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 56px -8px rgba(139, 92, 246, 0.7);
+    }
   }
 
   .kicker {

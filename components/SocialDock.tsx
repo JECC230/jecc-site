@@ -28,7 +28,12 @@ export default function SocialDock() {
   }, [open]);
 
   return (
-    <div ref={ref} className="fixed bottom-5 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center sm:bottom-6">
+    // On phones the bottom tab bar owns the bottom edge, so the dock sits above
+    // it on the right; from md up it returns to bottom-center.
+    <div
+      ref={ref}
+      className="fixed bottom-[calc(5.75rem+env(safe-area-inset-bottom))] right-4 z-40 flex flex-col items-end md:bottom-6 md:left-1/2 md:right-auto md:-translate-x-1/2 md:items-center"
+    >
       <AnimatePresence>
         {open && (
           <motion.div
@@ -53,7 +58,7 @@ export default function SocialDock() {
                   transition={{ delay: i * 0.04 }}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 transition-colors hover:text-cyan-600 dark:text-zinc-400 dark:hover:text-cyan-glow"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-zinc-600 transition-colors hover:text-cyan-600 dark:text-zinc-300 dark:hover:text-cyan-glow"
                 >
                   <Icon className="h-4 w-4" />
                 </motion.a>

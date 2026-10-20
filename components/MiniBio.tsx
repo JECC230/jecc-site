@@ -13,9 +13,9 @@ export default function MiniBio() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.5 }}
-        className="glass-panel max-w-3xl rounded-3xl border-l-4 border-l-cyan-glow p-8"
+        className="glass-panel max-w-3xl rounded-3xl p-8 sm:p-10"
       >
-        <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">{t.home.bio}</p>
+        <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">{t.home.bio}</p>
       </motion.div>
     </section>
   );

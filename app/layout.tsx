@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 import PageTransition from './page-transition';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CursorGlow from '@/components/ui/CursorGlow';
-import AnimatedBackground from '@/components/ui/AnimatedBackground';
+import InteractiveBackground from '@/components/InteractiveBackground';
+import SmoothScroll from '@/components/SmoothScroll';
 import SocialDock from '@/components/SocialDock';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jecc.mx'),
@@ -53,16 +53,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans font-medium antialiased`} suppressHydrationWarning>
         <Providers>
-          <AnimatedBackground />
-          <CursorGlow />
-          <Navbar />
-          <main className="relative">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-          <SocialDock />
+          <SmoothScroll>
+            <InteractiveBackground />
+            <Navbar />
+            <main className="relative z-10">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+            <SocialDock />
+          </SmoothScroll>
         </Providers>
       </body>
     </html>
