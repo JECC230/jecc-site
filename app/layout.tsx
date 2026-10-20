@@ -13,7 +13,7 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-sans', display: 'swa
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://jecc.mx'),
+  metadataBase: new URL('https://info.jecc.mx'),
   title: 'JECC — Juan Esteban Campos Cruz',
   description:
     'Software Engineer, DJ & Music Producer, and Automotive Builder based in Chihuahua, MX. Code, sound, and builds — one hub.',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'JECC — Juan Esteban Campos Cruz',
     description: 'Software Engineer, DJ & Music Producer, and Automotive Builder.',
-    url: 'https://jecc.mx',
+    url: 'https://info.jecc.mx',
     siteName: 'JECC',
     type: 'website',
   },

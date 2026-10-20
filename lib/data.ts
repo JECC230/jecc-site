@@ -8,7 +8,7 @@ import { TikTokIcon, SpotifyIcon, AppleMusicIcon, SoundCloudIcon } from '@/compo
 export const SITE = {
   name: 'JECC',
   fullName: 'Juan Esteban Campos Cruz',
-  domain: 'jecc.mx',
+  domain: 'info.jecc.mx',
   location: 'Chihuahua, MX',
   contactEmail: 'contacto@jecc.mx',
   epkUrl: OFFICIAL_LINKS.epk,

@@ -1,6 +1,6 @@
-# jecc.mx
+# info.jecc.mx
 
-Sitio personal de Juan Esteban Campos Cruz (JECC) — Next.js (App Router) + Tailwind CSS + Framer Motion + Lucide Icons, exportado como sitio estático para GitHub Pages, con dominio propio `jecc.mx`.
+Sitio personal de Juan Esteban Campos Cruz (JECC) — Next.js (App Router) + Tailwind CSS + Framer Motion + Lucide Icons, exportado como sitio estático para GitHub Pages, con dominio propio `info.jecc.mx`.
 
 ## Stack
 
@@ -47,7 +47,7 @@ lib/
   i18n.ts             # Diccionarios EN/ES
   utils.ts
 public/
-  CNAME              # jecc.mx — necesario para el dominio personalizado
+  CNAME              # info.jecc.mx — necesario para el dominio personalizado
   assets/            # Coloca aquí tus imágenes locales (proyectos, auto, galería, EPK, etc.)
 ```
 
@@ -62,7 +62,7 @@ public/
 - `lib/links.ts` — ya contiene tus enlaces oficiales reales (MavelPoint EPK/Events, Linktree, assets de artista, gigs). Actualiza `GIGS` según nuevas presentaciones.
 - `lib/discography.ts` — agrega nuevos lanzamientos aquí conforme salgan.
 
-## Despliegue en GitHub Pages con dominio jecc.mx
+## Despliegue en GitHub Pages con dominio info.jecc.mx
 
 1. **Crea el repositorio en GitHub** (por ejemplo `jecc-site`) y sube este proyecto:
    ```bash
@@ -79,26 +79,18 @@ public/
    - En "Build and deployment" → **Source**, selecciona **GitHub Actions**.
    - El workflow en `.github/workflows/deploy.yml` se ejecutará automáticamente en cada push a `main`, generará el export estático (`npm run build` → carpeta `out/`) y lo publicará.
 
-3. **Configura el dominio personalizado `jecc.mx`:**
-   - El archivo `public/CNAME` ya contiene `jecc.mx`, así que se incluye automáticamente en cada build.
-   - En `Settings → Pages → Custom domain`, escribe `jecc.mx` y guarda (GitHub validará el DNS).
+3. **Configura el dominio personalizado `info.jecc.mx`:**
+   - `CNAME` (raíz) y `public/CNAME` contienen `info.jecc.mx`; mantenlos iguales.
+   - Con deploy por GitHub Actions, el dominio que manda es el de `Settings → Pages → Custom domain`: escribe `info.jecc.mx` y guarda (GitHub validará el DNS).
    - Marca **Enforce HTTPS** una vez que el certificado esté listo (puede tardar unos minutos/horas).
 
 4. **Configura el DNS en tu proveedor de dominio** (donde compraste `jecc.mx`):
-   - Para el dominio raíz (apex, `jecc.mx`), crea 4 registros **A** apuntando a las IPs de GitHub Pages:
+   - `info` es un subdominio, así que basta un registro **CNAME** (no registros A):
      ```
-     185.199.108.153
-     185.199.109.153
-     185.199.110.153
-     185.199.111.153
+     info  →  JECC230.github.io
      ```
-   - (Opcional) Si también quieres `www.jecc.mx`, crea un registro **CNAME**:
-     ```
-     www  →  TU_USUARIO.github.io
-     ```
-   - Algunos proveedores soportan `ALIAS`/`ANAME` en la raíz en vez de 4 registros A — usa esa opción si está disponible.
 
-5. **Verifica:** tras la propagación de DNS (minutos a 24-48h), `https://jecc.mx` debe mostrar el sitio con el candado de HTTPS activo.
+5. **Verifica:** tras la propagación de DNS (minutos a 24-48h), `https://info.jecc.mx` debe mostrar el sitio con el candado de HTTPS activo.
 
 ## Notas técnicas
 
