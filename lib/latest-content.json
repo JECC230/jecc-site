@@ -1,6 +1,24 @@
 {
-  "updatedAt": "2026-10-20T21:01:26.276Z",
+  "updatedAt": "2026-10-22T17:00:38.339Z",
   "youtube": [
+    {
+      "id": "LkVPP3MVVE4",
+      "title": "ATB vs The Underground Project Classic 90s Dance Mashup | JECC",
+      "url": "https://www.youtube.com/shorts/LkVPP3MVVE4",
+      "category": "music",
+      "kind": "short",
+      "thumbnail": "https://i1.ytimg.com/vi/LkVPP3MVVE4/hqdefault.jpg",
+      "publishedAt": "2026-10-22T16:55:28+00:00"
+    },
+    {
+      "id": "ss1ELb50rC4",
+      "title": "Golden hour en spot abandonado con el squad JDM | JECC",
+      "url": "https://www.youtube.com/shorts/ss1ELb50rC4",
+      "category": "auto",
+      "kind": "short",
+      "thumbnail": "https://i4.ytimg.com/vi/ss1ELb50rC4/hqdefault.jpg",
+      "publishedAt": "2026-10-21T17:47:55+00:00"
+    },
     {
       "id": "ynYqd0x4Lps",
       "title": "Afro House (Drake - Get It Together) | JECC",
@@ -29,15 +47,6 @@
       "publishedAt": "2026-10-15T14:12:14+00:00"
     },
     {
-      "id": "Xo3bI-9uohU",
-      "title": "Mezclando Give Life Back to Music de Daft Punk | JECC",
-      "url": "https://www.youtube.com/shorts/Xo3bI-9uohU",
-      "category": "music",
-      "kind": "short",
-      "thumbnail": "https://i1.ytimg.com/vi/Xo3bI-9uohU/hqdefault.jpg",
-      "publishedAt": "2026-10-14T16:42:50+00:00"
-    },
-    {
       "id": "3dqTACJGkgs",
       "title": "Golden Hour con el Nissan 350Z Beluga | JECC",
       "url": "https://www.youtube.com/shorts/3dqTACJGkgs",
@@ -45,15 +54,6 @@
       "kind": "short",
       "thumbnail": "https://i4.ytimg.com/vi/3dqTACJGkgs/hqdefault.jpg",
       "publishedAt": "2026-10-01T22:50:16+00:00"
-    },
-    {
-      "id": "QU-uCulLYP0",
-      "title": "El squad de Nissan Z en Chihuahua | JECC",
-      "url": "https://www.youtube.com/shorts/QU-uCulLYP0",
-      "category": "auto",
-      "kind": "short",
-      "thumbnail": "https://i2.ytimg.com/vi/QU-uCulLYP0/hqdefault.jpg",
-      "publishedAt": "2026-07-02T13:52:55+00:00"
     }
   ],
   "instagram": [],
