@@ -1,9 +1,18 @@
 {
-  "updatedAt": "2026-10-22T17:00:38.339Z",
+  "updatedAt": "2026-10-23T16:53:08.836Z",
   "youtube": [
     {
+      "id": "6yN4dhICkPI",
+      "title": "Mezclando Axé Bahía con Tiësto | JECC",
+      "url": "https://www.youtube.com/shorts/6yN4dhICkPI",
+      "category": "music",
+      "kind": "short",
+      "thumbnail": "https://i3.ytimg.com/vi/6yN4dhICkPI/hqdefault.jpg",
+      "publishedAt": "2026-10-23T14:48:43+00:00"
+    },
+    {
       "id": "LkVPP3MVVE4",
-      "title": "ATB vs The Underground Project Classic 90s Dance Mashup | JECC",
+      "title": "POV: Mezclando ATB \"9 PM\" con \"Saturday Night\" | JECC",
       "url": "https://www.youtube.com/shorts/LkVPP3MVVE4",
       "category": "music",
       "kind": "short",
@@ -36,15 +45,6 @@
       "kind": "video",
       "thumbnail": "https://i3.ytimg.com/vi/6JzkoivjePk/hqdefault.jpg",
       "publishedAt": "2026-10-15T18:00:07+00:00"
-    },
-    {
-      "id": "OS8N0ft31nk",
-      "title": "Mezclando Underwater de RÜFÜS DU SOL | JECC",
-      "url": "https://www.youtube.com/shorts/OS8N0ft31nk",
-      "category": "music",
-      "kind": "short",
-      "thumbnail": "https://i4.ytimg.com/vi/OS8N0ft31nk/hqdefault.jpg",
-      "publishedAt": "2026-10-15T14:12:14+00:00"
     },
     {
       "id": "3dqTACJGkgs",
