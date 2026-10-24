@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-23T16:53:08.836Z",
+  "updatedAt": "2026-10-24T15:45:49.453Z",
   "youtube": [
+    {
+      "id": "zzbE4R2hu3o",
+      "title": "Live Tech House Set @ Epic Centro | JECC",
+      "url": "https://www.youtube.com/watch?v=zzbE4R2hu3o",
+      "category": "music",
+      "kind": "video",
+      "thumbnail": "https://i3.ytimg.com/vi/zzbE4R2hu3o/hqdefault.jpg",
+      "publishedAt": "2026-10-23T17:50:51+00:00"
+    },
     {
       "id": "6yN4dhICkPI",
       "title": "Mezclando Axé Bahía con Tiësto | JECC",
@@ -36,15 +45,6 @@
       "kind": "short",
       "thumbnail": "https://i2.ytimg.com/vi/ynYqd0x4Lps/hqdefault.jpg",
       "publishedAt": "2026-10-16T16:48:27+00:00"
-    },
-    {
-      "id": "6JzkoivjePk",
-      "title": "Live at Local 8: Nu-Disco, House & Groove Set | JECC",
-      "url": "https://www.youtube.com/watch?v=6JzkoivjePk",
-      "category": "music",
-      "kind": "video",
-      "thumbnail": "https://i3.ytimg.com/vi/6JzkoivjePk/hqdefault.jpg",
-      "publishedAt": "2026-10-15T18:00:07+00:00"
     },
     {
       "id": "3dqTACJGkgs",
