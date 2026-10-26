@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       # No `npm ci` needed: the script only uses Node built-ins and global fetch.
       - name: Fetch latest content
