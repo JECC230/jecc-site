@@ -69,15 +69,25 @@ export const TECH_STACK = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Typed URLs / asset paths — catch malformed data at compile time.
+// ---------------------------------------------------------------------------
+// Local files are served from public/, so '/assets/x.jpg' ↔ public/assets/x.jpg.
+// The leading slash is required (relative paths break on nested routes).
+export type AssetPath = `/assets/${string}.${'jpg' | 'jpeg' | 'png' | 'webp' | 'avif' | 'gif' | 'svg'}`;
+export type HttpsUrl = `https://${string}`;
+export type ImageSrc = AssetPath | HttpsUrl;
+
 export type Project = {
   id: string;
   title: string;
   tags: string[];
-  image: string;
+  // '' = no image yet (the card falls back to its placeholder).
+  image: ImageSrc | '';
   // `key` looks up its display label in lib/i18n.ts (tech.linkLabels) so it's bilingual.
-  links: { key: 'frontend' | 'backend' | 'view'; href: string }[];
+  links: { key: 'frontend' | 'backend' | 'view'; href: HttpsUrl }[];
   // Public, running product URL — shown as the card's primary action.
-  live?: string;
+  live?: HttpsUrl;
   // Expensive AI / API capability shown as a "Pro" teaser (label in
   // lib/i18n.ts tech.pro.features[id]). The button only opens a modal — no
   // request is made and no endpoint exists behind it.
@@ -255,12 +265,12 @@ export const CARS: CarBuild[] = [
 // No real photos of either car are available from any account this site can
 // pull from automatically — left empty on purpose (see AutoSection's
 // "coming soon" placeholder) rather than fabricated/broken paths.
-export const AUTO_GALLERY: { src: string; alt: string }[] = [];
+export const AUTO_GALLERY: { src: ImageSrc; alt: string }[] = [];
 
 // ---------------------------------------------------------------------------
 // E. Creative Media & Lifestyle
 // ---------------------------------------------------------------------------
-export type GalleryImage = { src: string; alt: string; category: 'concerts' };
+export type GalleryImage = { src: ImageSrc; alt: string; category: 'concerts' };
 
 // Real thumbnails pulled from the @jecc23 YouTube channel — no fabricated
 // placeholders. 'urban' and 'automotive' shots aren't available from any
