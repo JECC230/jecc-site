@@ -48,7 +48,7 @@ lib/
   utils.ts
 public/
   CNAME              # info.jecc.mx — necesario para el dominio personalizado
-  assets/            # Coloca aquí tus imágenes locales (proyectos, auto, galería, EPK, etc.)
+  assets/            #  tus imágenes locales (proyectos, auto, galería, EPK, etc.)
 ```
 
 ## Placeholders que debes reemplazar
@@ -61,39 +61,3 @@ public/
   - `SITE.contactEmail` — tu correo real de contacto.
 - `lib/links.ts` — ya contiene tus enlaces oficiales reales (MavelPoint EPK/Events, Linktree, assets de artista, gigs). Actualiza `GIGS` según nuevas presentaciones.
 - `lib/discography.ts` — agrega nuevos lanzamientos aquí conforme salgan.
-
-## Despliegue en GitHub Pages con dominio info.jecc.mx
-
-1. **Crea el repositorio en GitHub** (por ejemplo `jecc-site`) y sube este proyecto:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/jecc-site.git
-   git push -u origin main
-   ```
-
-2. **Activa GitHub Pages con GitHub Actions:**
-   - Ve a `Settings → Pages` en el repositorio.
-   - En "Build and deployment" → **Source**, selecciona **GitHub Actions**.
-   - El workflow en `.github/workflows/deploy.yml` se ejecutará automáticamente en cada push a `main`, generará el export estático (`npm run build` → carpeta `out/`) y lo publicará.
-
-3. **Configura el dominio personalizado `info.jecc.mx`:**
-   - `CNAME` (raíz) y `public/CNAME` contienen `info.jecc.mx`; mantenlos iguales.
-   - Con deploy por GitHub Actions, el dominio que manda es el de `Settings → Pages → Custom domain`: escribe `info.jecc.mx` y guarda (GitHub validará el DNS).
-   - Marca **Enforce HTTPS** una vez que el certificado esté listo (puede tardar unos minutos/horas).
-
-4. **Configura el DNS en tu proveedor de dominio** (donde compraste `jecc.mx`):
-   - `info` es un subdominio, así que basta un registro **CNAME** (no registros A):
-     ```
-     info  →  JECC230.github.io
-     ```
-
-5. **Verifica:** tras la propagación de DNS (minutos a 24-48h), `https://info.jecc.mx` debe mostrar el sitio con el candado de HTTPS activo.
-
-## Notas técnicas
-
-- `next.config.mjs` usa `output: 'export'` y `images.unoptimized: true` — no se usa `next/image`, solo `<img>` planas, compatibles con export estático y con URLs remotas (CDN de MavelPoint/Linktree) sin configuración adicional.
-- El tema (claro/oscuro) se resuelve con un script bloqueante en `<head>` que lee `localStorage` o, si no hay preferencia guardada, `prefers-color-scheme` del sistema — sin parpadeo visual.
-- El idioma se detecta con `navigator.language` en el primer render del cliente y se persiste en `localStorage`; el toggle EN/ES vive en el Navbar.
