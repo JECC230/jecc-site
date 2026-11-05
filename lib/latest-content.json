@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-24T15:45:49.453Z",
+  "updatedAt": "2026-11-05T19:48:35.488Z",
   "youtube": [
+    {
+      "id": "KxS4myXi1RQ",
+      "title": "Kart me enseñó a esquivar baches en México | JECC",
+      "url": "https://www.youtube.com/shorts/KxS4myXi1RQ",
+      "category": "auto",
+      "kind": "short",
+      "thumbnail": "https://i4.ytimg.com/vi/KxS4myXi1RQ/hqdefault.jpg",
+      "publishedAt": "2026-11-05T14:04:11+00:00"
+    },
     {
       "id": "zzbE4R2hu3o",
       "title": "Live Tech House Set @ Epic Centro | JECC",
@@ -45,15 +54,6 @@
       "kind": "short",
       "thumbnail": "https://i2.ytimg.com/vi/ynYqd0x4Lps/hqdefault.jpg",
       "publishedAt": "2026-10-16T16:48:27+00:00"
-    },
-    {
-      "id": "3dqTACJGkgs",
-      "title": "Golden Hour con el Nissan 350Z Beluga | JECC",
-      "url": "https://www.youtube.com/shorts/3dqTACJGkgs",
-      "category": "auto",
-      "kind": "short",
-      "thumbnail": "https://i4.ytimg.com/vi/3dqTACJGkgs/hqdefault.jpg",
-      "publishedAt": "2026-10-01T22:50:16+00:00"
     }
   ],
   "instagram": [],
