@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-05T19:48:35.488Z",
+  "updatedAt": "2026-11-18T06:59:15.831Z",
   "youtube": [
+    {
+      "id": "f72glEwIv1M",
+      "title": "Abriendo cabina en azotea | House Warm-Up Set JECC",
+      "url": "https://www.youtube.com/shorts/f72glEwIv1M",
+      "category": "music",
+      "kind": "short",
+      "thumbnail": "https://i3.ytimg.com/vi/f72glEwIv1M/hqdefault.jpg",
+      "publishedAt": "2026-11-18T04:50:29+00:00"
+    },
     {
       "id": "KxS4myXi1RQ",
       "title": "Kart me enseñó a esquivar baches en México | JECC",
@@ -45,15 +54,6 @@
       "kind": "short",
       "thumbnail": "https://i4.ytimg.com/vi/ss1ELb50rC4/hqdefault.jpg",
       "publishedAt": "2026-10-21T17:47:55+00:00"
-    },
-    {
-      "id": "ynYqd0x4Lps",
-      "title": "Afro House (Drake - Get It Together) | JECC",
-      "url": "https://www.youtube.com/shorts/ynYqd0x4Lps",
-      "category": "music",
-      "kind": "short",
-      "thumbnail": "https://i2.ytimg.com/vi/ynYqd0x4Lps/hqdefault.jpg",
-      "publishedAt": "2026-10-16T16:48:27+00:00"
     }
   ],
   "instagram": [],
