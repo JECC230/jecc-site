@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-19T06:59:52.426Z",
+  "updatedAt": "2026-11-20T06:52:51.486Z",
   "youtube": [
+    {
+      "id": "y_B0-dPzSSw",
+      "title": "Build-Up y Drop en Azotea | Le Prof B2B JECC (House)",
+      "url": "https://www.youtube.com/shorts/y_B0-dPzSSw",
+      "category": "music",
+      "kind": "short",
+      "thumbnail": "https://i2.ytimg.com/vi/y_B0-dPzSSw/hqdefault.jpg",
+      "publishedAt": "2026-11-20T04:11:23+00:00"
+    },
     {
       "id": "6i_buNnrZAM",
       "title": "Así arranca un B2B de House en azotea | Le Prof B2B JECC",
@@ -36,15 +45,6 @@
       "kind": "video",
       "thumbnail": "https://i3.ytimg.com/vi/zzbE4R2hu3o/hqdefault.jpg",
       "publishedAt": "2026-10-23T17:50:51+00:00"
-    },
-    {
-      "id": "6yN4dhICkPI",
-      "title": "Mezclando Axé Bahía con Tiësto | JECC",
-      "url": "https://www.youtube.com/shorts/6yN4dhICkPI",
-      "category": "music",
-      "kind": "short",
-      "thumbnail": "https://i3.ytimg.com/vi/6yN4dhICkPI/hqdefault.jpg",
-      "publishedAt": "2026-10-23T14:48:43+00:00"
     },
     {
       "id": "ss1ELb50rC4",
